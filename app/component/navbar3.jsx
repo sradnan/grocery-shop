@@ -2,17 +2,10 @@ import Image from "next/image";
 import cont from "../component/picture/Container.png";
 import fire from "../component/picture/SVG.png";
 import headphone from "../component/picture/phone.png";
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { ChevronDown } from "lucide-react";
+
+
+
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -39,16 +32,17 @@ function Navbar3() {
               Browse All Categories
             </span>
           </div>
-
+            
           {/* Menu Links */}
           <div className="hidden md:flex items-center gap-5 text-gray-700 text-sm">
-
+              
             {/* Hot Deals */}
             <a href="#" className="flex items-center gap-1 hover:text-green-600 transition">
               <Image src={fire} alt="hot" width={16} height={16} />
               Hot Deals
             </a>
-
+            
+             
             {/* Home Dropdown */}
             <a href="/home">Home</a>
             {/* <select name="Home" className="cursor-pointer">
@@ -61,53 +55,60 @@ function Navbar3() {
             </a>
 
             {/* Shop */}
-            <select name="Shop" className="cursor-pointer">
-              <option value="/">Shop</option>
-            </select>
+            <NavigationMenu className="!w-24">
+            <NavigationMenuList className="w-20">
+              <NavigationMenuItem className="w-20">
+                <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+                <NavigationMenuContent className="w-20">
+                  <NavigationMenuLink className="text-red-500">Shop-1</NavigationMenuLink>
+                  <NavigationMenuLink>Shop-1</NavigationMenuLink>
+                  <NavigationMenuLink>Shop -3</NavigationMenuLink> 
+                  <NavigationMenuLink>Shop-4 </NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
             {/* Mega Menu */}
-            <select name="MegaMenu" className="cursor-pointer">
-              <option value="/">Mega Menu</option>
-              <option value="/mega/menu1">Menu 1</option>
-              <option value="/mega/menu2">Menu 2</option>
-            </select>
+            <NavigationMenu className="!w-24">
+  <NavigationMenuList className="w-20">
+    <NavigationMenuItem className="w-20">
+      <NavigationMenuTrigger>Mega Menu</NavigationMenuTrigger>
+      <NavigationMenuContent className="w-20">
+        <NavigationMenuLink className="text-red-500">Vegetable</NavigationMenuLink>
+        <NavigationMenuLink>Soft Drink</NavigationMenuLink>
+        <NavigationMenuLink>Jhak Food</NavigationMenuLink> 
+        <NavigationMenuLink>Baby Product</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+          </NavigationMenu>
 
             {/* Vendor */}
-            <select name="Vendor" className="cursor-pointer">
-              <option value="/">Vendor</option>
-            </select>
+            <NavigationMenu className="!w-24">
+  <NavigationMenuList className="w-20">
+    <NavigationMenuItem className="w-20">
+      <NavigationMenuTrigger>Vender</NavigationMenuTrigger>
+      <NavigationMenuContent className="w-20">
+        <NavigationMenuLink className="text-red-500">Pran</NavigationMenuLink>
+        <NavigationMenuLink>Lux</NavigationMenuLink>
+        <NavigationMenuLink>Shopno</NavigationMenuLink> 
+        <NavigationMenuLink>Mina Bazar</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+            </NavigationMenu>
+            {/* vender */}
 
             {/* Blog */}
-            <select name="Blog" className="cursor-pointer">
-              <option value="/">Blog</option>
-            </select>
-
+            
+                {/* blog */}
             {/* Contact */}
             <Link href="/contact" className="hover:text-green-600 transition">
               Contact
             </Link>
 
-            <DropdownMenu >
-      <DropdownMenuTrigger asChild>
-        <div className="flex items-center gap-1">
-           <p>Open</p>
-       <ChevronDown size={16}/>
-        </div>
-      
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+              
     <NavigationMenu className="!w-24">
   <NavigationMenuList className="w-20">
     <NavigationMenuItem className="w-20">

@@ -2,6 +2,8 @@
 import React from "react";
 import Dayproduct from "../MainSection/AllCatagoriesDay/Daysell";
 import Image from "next/image";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 const DayProductCard = () => {
   return (
@@ -74,7 +76,7 @@ const DayProductCard = () => {
                   <span className="line-through text-gray-400 text-[10px]">
                     ${item.oldPrice}
                   </span>
-                  <button className="flex justify-center bg-green-100 text-green-600 px-2 py-1 rounded-md text-[10px] sm:text-xs w-full hover:bg-green-200 transition">
+                  <button onClick={() => addToCart(item)} className="flex justify-center bg-green-100 text-green-600 px-2 py-1 rounded-md text-[10px] sm:text-xs w-full hover:bg-green-200 transition">
                 🛒 <span className="hidden sm:block ">Add to Cart</span>
               </button>
                 </div>

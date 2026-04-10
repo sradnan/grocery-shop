@@ -2,6 +2,7 @@
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import Image from "next/image";
 import logo from "./picture/logo.png";
+import { DropdownMenuBasic } from "@/components/ui/DropdownMenuBasic";
 
 function Navbar2() {
   return (
@@ -25,7 +26,8 @@ function Navbar2() {
             <option>Vegetables</option>
             <option>Fruits</option>
           </select>
-
+           
+              
           <input
             type="text"
             placeholder="Search for items..."

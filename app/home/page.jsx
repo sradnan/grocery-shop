@@ -1,4 +1,4 @@
-
+"use client";
 import ProductCard from "../component/MainSection/Allproduct";
 import DayProductCard from "../component/MainSection/Daysell";
 import HeroCarousel from "../component/MainSection/herosection";
@@ -6,6 +6,7 @@ import MiniHero from "../component/MainSection/miniHero";
 import MostDemandingProduct from "../component/MainSection/Mosstcataproduct/MostRRST";
 import ShopCatagory from "../component/MainSection/outerproduct/ShopByCatagoery";
 import FilterSidebar from "../component/MainSection/side-bar-3/Sidebar";
+
 
 function Home() {
   return (
