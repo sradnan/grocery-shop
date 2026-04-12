@@ -66,7 +66,7 @@ function Navbar2() {
             <FaHeart />
             <span className="hidden sm:block">Wishlist</span>
             <span className="absolute -top-2 -right-3 bg-green-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-              6
+              0
             </span>
           </div>
 
