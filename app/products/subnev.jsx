@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function SubNavbar() {
+export default function SubNavBar() {
   const [showAll, setShowAll] = useState(false);
 
   const toggleCategories = () => {
@@ -26,11 +26,11 @@ export default function SubNavbar() {
           }`}
         >
           <a className="hover:text-green-600 transition" href="/products/vegetables">Vegetables</a>
-          <a className="hover:text-green-600 transition" href="/products/Milk&Dairies">Milks & Dairies</a>
+          <a className="hover:text-green-600 transition" href="/products/milk">Milks & Dairies</a>
           <a className="hover:text-green-600 transition" href="/products/coffestea">Coffes & Tea</a>
           <a className="hover:text-green-600 transition" href="/products/petfood">Pet Food</a>
           <a className="hover:text-green-600 transition" href="/products/meats">Meats</a>
-          <a className="hover:text-green-600 transition" href="/products/fruits">Fruits</a>
+          <a className="hover:text-green-600 transition"href="/products/fruits">Fruits</a>
         </div>
       </div>
     </nav>

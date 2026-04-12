@@ -1,25 +1,25 @@
+
 "use client";
-import Image from "next/image";
-import products from "../MainSection/Data-product/Dataproduct";
-import SubNavbar from "./ProductNav";
+
+
+
+import Teaproducts from "./datacoffee";
 
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
 
-function ProductCard(){
-  const { addToCart } = useContext(CartContext);
+import { CartContext } from "../../component/context/CartContext"
 
-   
+function Coffee() {
 
+     const { addToCart } = useContext(CartContext);
+     const showAlert = () => {
+      alert("Item added!");
+        };
   return (
-
-    <>
-    <div className="flex justify-between items-center mt-4">
-      <h1 className="text-4xl ">All Product</h1>
-      <SubNavbar></SubNavbar>
-    </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 p-3 sm:p-4">
-      {products.map((item) => (
+   <>
+   
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mx-10 lg:grid-cols-4 gap-4 sm:gap-6 p-3 sm:p-4">
+      {Teaproducts.map((item) => (
         <div
           key={item.id}
           className="bg-white rounded-2xl shadow p-3 sm:p-4 relative hover:shadow-lg transition"
@@ -30,7 +30,7 @@ function ProductCard(){
           </span>
 
           {/* Image */}
-          <Image
+          <img
             src={item.image}
             alt={item.title}
             width={200}
@@ -65,7 +65,7 @@ function ProductCard(){
 
           {/* Button */}
           <button
-            onClick={() => addToCart(item)}
+            onClick={() => {addToCart(item); showAlert(); }}
             className="mt-2 sm:mt-3 w-full bg-green-100 text-green-600 text-xs sm:text-sm md:text-base px-3 py-1.5 sm:py-2 rounded-lg hover:bg-green-200 transition"
           >
             🛒 Add
@@ -73,9 +73,9 @@ function ProductCard(){
         </div>
       ))}
     </div>
-    
-    </>
-  );
-};
-
-export default ProductCard;
+   
+   
+   </>
+  )
+}
+export default Coffee;

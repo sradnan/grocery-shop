@@ -64,7 +64,7 @@ export default function CartPage() {
           <div className="mt-4 flex flex-col gap-4 items-center sm:items-end">
             <PaymentDropdown />
 
-            <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 transition text-white px-6 py-3 rounded-xl font-semibold">
+            <button  className="w-full sm:w-auto bg-green-600 hover:bg-green-700 transition text-white px-6 py-3 rounded-xl font-semibold">
               Confirm Order
             </button>
           </div>

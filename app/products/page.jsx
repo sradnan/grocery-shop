@@ -1,25 +1,27 @@
+
 "use client";
-import Image from "next/image";
-import products from "../MainSection/Data-product/Dataproduct";
-import SubNavbar from "./ProductNav";
+
+
+
+import ALproducts from "./ProductData";
+import SubProductNav from "./subnev"
 
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
 
-function ProductCard(){
-  const { addToCart } = useContext(CartContext);
+import { CartContext } from "../component/context/CartContext"
 
-   
+function ALLProduct() {
 
+     const { addToCart } = useContext(CartContext);
+     
   return (
-
-    <>
-    <div className="flex justify-between items-center mt-4">
+   <>
+  <div className="px-10 bg-amber-50  flex justify-between items-center mt-4">
       <h1 className="text-4xl ">All Product</h1>
-      <SubNavbar></SubNavbar>
+      <SubProductNav></SubProductNav>
     </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 p-3 sm:p-4">
-      {products.map((item) => (
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mx-10 lg:grid-cols-4 gap-4 sm:gap-6 p-3 sm:p-4">
+      {ALproducts.map((item) => (
         <div
           key={item.id}
           className="bg-white rounded-2xl shadow p-3 sm:p-4 relative hover:shadow-lg transition"
@@ -30,7 +32,7 @@ function ProductCard(){
           </span>
 
           {/* Image */}
-          <Image
+          <img
             src={item.image}
             alt={item.title}
             width={200}
@@ -73,9 +75,9 @@ function ProductCard(){
         </div>
       ))}
     </div>
-    
-    </>
-  );
-};
-
-export default ProductCard;
+   
+   
+   </>
+  )
+}
+export default ALLProduct;

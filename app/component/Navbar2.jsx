@@ -2,7 +2,7 @@
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import Image from "next/image";
 import logo from "./picture/logo.png";
-import { DropdownMenuBasic } from "@/components/ui/DropdownMenuBasic";
+
 
 function Navbar2() {
   return (
@@ -11,20 +11,24 @@ function Navbar2() {
 
         {/* 🔰 Logo */}
         <div className="flex items-center h-10 w-32 relative">
+          <a href="/">
           <Image
             src={logo}
             alt="Logo"
             fill
             className="object-contain"
-          />
+          /></a>
         </div>
 
         {/* 🔍 Search Bar */}
         <div className="hidden md:flex items-center border rounded-md overflow-hidden w-full max-w-xl bg-white">
           <select className="px-3 py-2 text-sm border-r outline-none cursor-pointer">
-            <option>All Categories</option>
-            <option>Vegetables</option>
-            <option>Fruits</option>
+            <option><a href="/products">All Products</a></option>
+            <option><a href="/products/coffestea">Coffee & Tea</a></option>
+            <option><a href="/products/vegetable"></a>Vegetables</option>
+            <option><a href="/products/fruits">Fruits</a></option>
+            <option><a href="/products/meats">Meats</a></option>
+            <option><a href="/products/petfood">Pet Food</a></option>
           </select>
            
               
