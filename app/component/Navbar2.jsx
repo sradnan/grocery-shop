@@ -2,9 +2,13 @@
 import { FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import Image from "next/image";
 import logo from "./picture/logo.png";
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 
 function Navbar2() {
+
+  const { totalItems } = useContext(CartContext);
   return (
     <div className="w-full bg-gray-100 px-10 shadow-sm">
       <div className="max-w-9xl flex items-center  justify-between px-4 py-3 gap-4">
@@ -71,7 +75,7 @@ function Navbar2() {
             <a className="flex justify-center" href="/cart"><FaShoppingCart />
             <span className="hidden sm:block">Cart</span></a>
             <span className="absolute -top-2 -right-3 bg-green-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-              2
+              {totalItems}
             </span>
           </div>
 
