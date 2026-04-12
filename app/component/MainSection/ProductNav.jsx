@@ -21,8 +21,8 @@ export default function SubNavbar() {
 
         {/* Categories */}
         <div
-          className={`flex gap-4 transition-all duration-300 ${
-            showAll ? "flex" : "hidden hover:bg-blue-700"
+         className={`flex flex-col sm:flex-row gap-4 transition-all duration-300 ${
+            showAll ? "block sm:flex" : "hidden"
           }`}
         >
           <a className="hover:text-green-600 transition" href="/products/vegetables">Vegetables</a>
