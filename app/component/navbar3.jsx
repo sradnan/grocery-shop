@@ -37,10 +37,10 @@ function Navbar3() {
 
           {/* Categories Button */}
           <div className="hidden lg:flex bg-blue-600 items-center gap-2 px-2 py-2 rounded-md cursor-pointer">
-            <Image src={cont} alt="icon" width={20} height={20} />
+           <a className="flex items-center gap-2" href="/products"> <Image src={cont} alt="icon" width={20} height={20} />
             <span className="text-white text-sm font-medium">
               Browse All Categories
-            </span>
+            </span></a>
           </div>
 
           {/* Menu Links */}
