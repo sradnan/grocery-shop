@@ -3,6 +3,8 @@
 import { useContext } from "react";
 import { CartContext } from "../component/context/CartContext";
 import { PaymentDropdown } from "../../components/ui/PaymentDropdown";
+import { PaymentDialog } from "./payment";
+
 
 export default function CartPage() {
   const { cart, removeFromCart } = useContext(CartContext);
@@ -65,8 +67,9 @@ export default function CartPage() {
             <PaymentDropdown />
 
             <button  className="w-full sm:w-auto bg-green-600 hover:bg-green-700 transition text-white px-6 py-3 rounded-xl font-semibold">
-              Confirm Order
+              <PaymentDialog/>
             </button>
+            
           </div>
         </div>
       )}
