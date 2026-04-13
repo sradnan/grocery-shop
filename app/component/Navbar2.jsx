@@ -95,7 +95,7 @@ function Navbar2() {
 
           {/* Account */}
           <div className="flex items-center gap-1 cursor-pointer hover:text-green-600 transition">
-            <a href="/login" className="flex items-center gap-1">
+            <a href="/account" className="flex items-center gap-1">
               <FaUser />
               <span className="hidden sm:block">Account</span>
             </a>
