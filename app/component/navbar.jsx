@@ -5,10 +5,10 @@ function Navbar1() {
 
         {/* 🔗 Left Links */}
         <div className="hidden md:flex items-center text-gray-600">
-          <a href="#" className="px-3 border-r hover:text-green-600 transition">
+          <a href="/about" className="px-3 border-r hover:text-green-600 transition">
             About Us
           </a>
-          <a href="#" className="px-3 border-r hover:text-green-600 transition">
+          <a href="/account/profile" className="px-3 border-r hover:text-green-600 transition">
             My Account
           </a>
           <a href="#" className="px-3 border-r hover:text-green-600 transition">
