@@ -33,7 +33,7 @@ function Navbar2() {
         </div>
 
         {/* 🔍 Search Bar */}
-        <div className="hidden md:flex items-center border rounded-md overflow-hidden w-full max-w-xl bg-white">
+        <div className=" flex items-center border rounded-md overflow-hidden w-full max-w-xl bg-white">
 
           {/* ✅ FIXED SELECT */}
           <select
@@ -51,10 +51,10 @@ function Navbar2() {
           <input
             type="text"
             placeholder="Search for items..."
-            className="flex-1 px-3 py-2 outline-none text-sm"
+            className=" hidden md:flex flex-1 px-3 py-2 outline-none text-sm"
           />
 
-          <button className="px-4 h-[35px] text-white bg-green-600 hover:bg-green-700 transition">
+          <button className=" hidden md:flex items-center justify-center px-4 h-[35px] text-white bg-green-600 hover:bg-green-700 transition">
             Search
           </button>
         </div>
@@ -107,14 +107,8 @@ function Navbar2() {
       {/* 🔍 Mobile Search */}
       <div className="md:hidden px-4 pb-3">
         <div className="flex items-center border rounded-md overflow-hidden bg-white">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="flex-1 px-3 py-2 outline-none text-sm"
-          />
-          <button className="px-4 text-white bg-green-600">
-            Go
-          </button>
+          
+          
         </div>
       </div>
     </div>
