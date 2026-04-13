@@ -1,5 +1,9 @@
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -8,61 +12,104 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-
+} from "@/components/ui/card";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // ✅ Demo login validation
+    if (email === "admin@gmail.com" && password === "1234") {
+      localStorage.setItem("auth", "true");
+
+      // redirect to profile page
+      router.push("/account/profile");
+    } else {
+      setError("Invalid email or password");
+    }
+  };
+
   return (
-    <> <div className="flex justify-center items-center pt-10">
-        <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Login to your account</CardTitle>
-        <CardDescription>
-          Enter your email below to login to your account
-        </CardDescription>
-        <CardAction>
-          <Button variant="link">Sign Up</Button>
-        </CardAction>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-2">
-                <label htmlFor="email">Email</label>
-              
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+
+      <Card className="w-full max-w-sm shadow-lg">
+
+        <CardHeader>
+          <CardTitle>Login to your account</CardTitle>
+
+          <CardDescription>
+            Enter your email and password to continue
+          </CardDescription>
+
+          <CardAction>
+            <Button variant="link" onClick={() => router.push("/register")}>
+              Sign Up
+            </Button>
+          </CardAction>
+        </CardHeader>
+
+        <CardContent>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+
+            {/* EMAIL */}
+            <div className="flex flex-col gap-2">
+              <label>Email</label>
               <input
-                id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="admin@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border p-2 rounded"
                 required
               />
             </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <label htmlFor="password"> Password</label>
-                {/* <Label htmlFor="password">Password</Label> */}
-                <a
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </a>
-              </div>
-              <input type="password" id="password" required />
-              {/* <Input id="password" type="password" required /> */}
+
+            {/* PASSWORD */}
+            <div className="flex flex-col gap-2">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="1234"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="border p-2 rounded"
+                required
+              />
             </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
-          Login
-        </Button>
-        <Button variant="outline" className="w-full">
-          Login with Google
-        </Button>
-      </CardFooter>
-    </Card>
-        </div></>
-  )
+
+            {/* ERROR MESSAGE */}
+            {error && (
+              <p className="text-red-500 text-sm">{error}</p>
+            )}
+
+            {/* SUBMIT BUTTON */}
+            <Button type="submit" className="w-full">
+              Login
+            </Button>
+
+          </form>
+        </CardContent>
+
+        <CardFooter className="flex-col gap-2">
+
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => alert("Google Login Coming Soon")}
+          >
+            Login with Google
+          </Button>
+
+        </CardFooter>
+
+      </Card>
+
+    </div>
+  );
 }
