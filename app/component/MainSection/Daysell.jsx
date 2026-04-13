@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const DayProductCard = () => {
+  const { addToCart } = useContext(CartContext);
   return (
     <>
       {/* Header */}
@@ -30,7 +31,7 @@ const DayProductCard = () => {
             <div className="relative">
               <Image
                 src={item.image}
-                alt={item.name}
+                alt={item.title}
                 className="w-full h-24 sm:h-28 md:h-36 object-cover"
               />
 
@@ -54,7 +55,7 @@ const DayProductCard = () => {
             <div className="p-2 sm:p-3 flex flex-col flex-grow">
               {/* Title */}
               <h2 className="font-semibold text-xs sm:text-sm mb-1 line-clamp-2 min-h-[32px]">
-                {item.name}
+                {item.title}
               </h2>
 
               {/* Rating */}

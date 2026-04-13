@@ -6,7 +6,7 @@ import ban4 from "./banner-8.png.png"
 const Dayproduct = [
   {
     id: 1,
-    name: "Seeds of Change Organic Quinoa, Brown",
+    title: "Seeds of Change Organic Quinoa, Brown",
     brand: "NestFood",
     price: 32.85,
     oldPrice: 33.8,
@@ -21,7 +21,7 @@ const Dayproduct = [
   },
   {
     id: 1,
-    name: "Perdue Simply Smart Organic Gluten",
+    title: "Perdue Simply Smart Organic Gluten",
     brand: "Old EI Paso",
     price: 24.85,
     oldPrice: 26.8,
@@ -36,7 +36,7 @@ const Dayproduct = [
   },
   {
     id: 3,
-    name: "Signature Wood-Fired Musroom",
+    title: "Signature Wood-Fired Musroom",
     brand: "Progresso",
     price: 12.85,
     oldPrice: 13.8,
@@ -51,7 +51,7 @@ const Dayproduct = [
   },
   {
     id: 4,
-    name: "Simply Lemonmade With Raspberry Juice",
+    title: "Simply Lemonmade With Raspberry Juice",
     brand: "Yoplait",
     price: 15.85,
     oldPrice: 16.8,
