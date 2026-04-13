@@ -95,8 +95,7 @@ const products = [
     image:im8 ,
     discount: "Hot"
   },
-  { id: 9, title: "Papaya", category: "Fruit", price: 3.0, oldPrice: 4.0, star: "4.2", brand: "Healthy Farm", discount: "10%", image: "https://images.unsplash.com/photo-1617112848923-cc2234396a9d" },
-  { id: 10, title: "Guava", category: "Fruit", price: 2.8, oldPrice: 3.5, star: "4.3", brand: "Local Farm", discount: "8%", image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" },
+  { id: 9, title: "Guava", category: "Fruit", price: 2.8, oldPrice: 3.5, star: "4.3", brand: "Local Farm", discount: "8%", image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" },
 
 ];
 export default products;
