@@ -19,7 +19,7 @@ function ProductCard(){
       <SubNavbar></SubNavbar>
     </div>
         <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 p-3 sm:p-4">
-      {products.map((item) => (
+     {products.map((item) => ( 
         <div
           key={item.id}
           className="bg-white rounded-2xl shadow p-3 sm:p-4 relative hover:shadow-lg transition"

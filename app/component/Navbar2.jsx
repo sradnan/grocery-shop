@@ -11,7 +11,7 @@ function Navbar2() {
   const { totalItems } = useContext(CartContext);
   const router = useRouter();
 
-  // ✅ category change handler
+  //  category change handler
   const handleCategoryChange = (e) => {
     router.push(e.target.value);
   };
@@ -20,7 +20,7 @@ function Navbar2() {
     <div className="w-full bg-gray-100 px-10 shadow-sm">
       <div className="max-w-9xl flex items-center justify-between px-4 py-3 gap-4">
 
-        {/* 🔰 Logo */}
+        {/*  Logo */}
         <div className="flex items-center h-10 w-32 relative">
           <a href="/home">
             <Image
@@ -35,7 +35,7 @@ function Navbar2() {
         {/* 🔍 Search Bar */}
         <div className=" flex items-center border rounded-md overflow-hidden w-full max-w-xl bg-white">
 
-          {/* ✅ FIXED SELECT */}
+          {/*  FIXED SELECT */}
           <select
             onChange={handleCategoryChange}
             className="px-3 py-2 text-sm border-r outline-none cursor-pointer"
@@ -59,7 +59,7 @@ function Navbar2() {
           </button>
         </div>
 
-        {/* 📍 Right Section */}
+        {/*  Right Section */}
         <div className="flex items-center gap-5 text-sm text-gray-600">
 
           {/* Become Vendor */}
@@ -104,7 +104,7 @@ function Navbar2() {
         </div>
       </div>
 
-      {/* 🔍 Mobile Search */}
+      {/* Mobile Search */}
       <div className="md:hidden px-4 pb-3">
         <div className="flex items-center border rounded-md overflow-hidden bg-white">
           

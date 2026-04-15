@@ -1,55 +1,131 @@
-"use client";
-import { createContext, useState, useEffect } from "react";
+"use client"
 
-export const CartContext = createContext();
+import { createContext, useEffect, useState } from "react"
+export const CartContext= createContext();
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("cart");
-      return stored ? JSON.parse(stored) : [];
-    }
-    return [];
-  });
+export const CartProvider=({children})=>{
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    const[cart, setCart]=useState(()=>{
 
-  // Add to Cart
-  const addToCart = (product) => {
-    setCart((prev) => {
-      // Check if product already exists
-      const exist = prev.find((item) => item.id === product.id);
-
-      if (exist) {
-        // Increase quantity
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, qty: item.qty + 1 }
-            : item
-        );
-      }
-
-      // Add new product with qty = 1
-      return [...prev, { ...product, qty: 1 }];
+        if (typeof window !=="undefined"){
+            return JSON.parse(localStorage.getItem("cart"))||[];
+        }
+        return [];
     });
-  };
+    
+        
 
-  // Optional: remove from cart
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  return (
-    <CartContext.Provider value={{ cart,totalItems, addToCart, removeFromCart }}>
-      {children}
-    </CartContext.Provider>
+
+    useEffect(()=>{
+        localStorage.setItem("cart",JSON.stringify(cart));
+    },[cart]);
+
+   const addToCart = (product) => {
+  setCart((prev) => {
+    const exist = prev.find((item) => item.id === product.id);
+
+    if (exist) {
+      return prev.map((item) =>
+        item.id === product.id
+          ? { ...item, qty: (item.qty || 1) + 1 }
+          : item
+      );
+    }
+
+    return [...prev, { ...product, qty: 1 }];
+  });
+};
+
+  const  removeFromCart=(id)=>{
+        setCart((prev)=> prev.filter((item)=> item.id !==id));
+    };
+
+
+    const UpdateQty = (id, type) => {
+  setCart((prev) =>
+    prev.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            qty:
+              type === "inc"
+                ? item.qty + 1
+                : item.qty > 1
+                ? item.qty - 1
+                : 1,
+          }
+        : item
+    )
   );
 };
 
 
+const totalItems = cart.reduce(
+      (sum, item) => sum + (item.qty || 0),
+      0
+    );
+
+    return(
+
+        <CartContext.Provider value={{cart,addToCart,removeFromCart,UpdateQty, totalItems}}>{children}</CartContext.Provider>
+    )
+}
+
+
+
+// "use client"
+
+// import { createContext, useEffect, useState } from "react"
+// export const CartContext= createContext();
+
+// export const CartProvider=({children})=>{
+
+//     const[cart, setCart]=useState(()=>{
+
+//         if (typeof window !=="undefined"){
+//             return JSON.parse(localStorage.getItem("cart"))||[];
+//         }
+//         return [];
+//     });
+    
+        
+
+
+
+//     useEffect(()=>{
+//         localStorage.setItem("cart",JSON.stringify(cart));
+//     },[cart]);
+
+//    const addToCart=(product)=>{
+//         setCart((prev)=> [...prev,product]);
+//     };
+
+//   const  removeFromCart=(id)=>{
+//         setCart((prev)=> prev.filter((item)=> item.id !==id));
+//     };
+
+
+//     const UpdateQty= (id,type)=>{
+//         setCart(prev=>
+//             prev.map(item=>
+//                 item.id === id
+//                 ?{
+//                     ...item,
+//                     qty:type === "inc"? item.qty +1 : item.qty -1,
+//                 }
+//                 :item
+//             )
+//         );
+//     };
+
+//         const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+//     return(
+
+//         <CartContext.Provider value={{cart,addToCart,removeFromCart,UpdateQty}}>{children}</CartContext.Provider>
+//     )
+// }
 
 
 
@@ -77,50 +153,3 @@ export const CartProvider = ({ children }) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// "use client";
-// import { createContext, useState, useEffect } from "react";
-
-// export const CartContext = createContext();
-
-// export const CartProvider = ({ children }) => {
-//   const [cart, setCart] = useState(() => {
-//     if (typeof window !== "undefined") {
-//       const stored = localStorage.getItem("cart");
-//       return stored ? JSON.parse(stored) : [];
-//     }
-//     return [];
-//   });
-
-//   useEffect(() => {
-//     localStorage.setItem("cart", JSON.stringify(cart));
-//   }, [cart]);
-
-//   const addToCart = (product) => {
-//     setCart((prev) => [...prev, product]);
-//   };
-
-//   return (
-//     <CartContext.Provider value={{ cart, addToCart }}>
-//       {children}
-//     </CartContext.Provider>
-//   );
-// };
