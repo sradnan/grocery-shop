@@ -15,7 +15,7 @@ const products = [
     price: 28.85,
     oldPrice: 32.8,
     star: "4.0",
-    image: im1,
+    image: "https://tse1.mm.bing.net/th/id/OIP.OZTHTU-fSsjw8n37xFiFHgHaHa?w=612&h=612&rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "hot"
   },
   {
@@ -26,7 +26,7 @@ const products = [
     price: 52.45,
     oldPrice: 55.8,
     star: "3.5",
-    image:im2 ,
+    image:"https://tse4.mm.bing.net/th/id/OIP.7hyW1uJHOiiNjakdhdtOWAHaG2?rs=1&pid=ImgDetMain&o=7&rm=3" ,
     discount: "Sale"
   },
   {
@@ -37,7 +37,7 @@ const products = [
     price: 48.85,
     oldPrice: 52.8,
     star: "4.0",
-    image:im3 ,
+    image:"https://tse1.mm.bing.net/th/id/OIP.F1z1U8YOX5zM3XQIHZvG2wHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "New"
   },
   {
@@ -48,7 +48,7 @@ const products = [
     price: 17.85,
     oldPrice: 19.00,
     star: "4.0",
-    image: im4,
+    image: "https://tse3.mm.bing.net/th/id/OIP.G85OSZAmuXF-7k_pbU-2fQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "New"
   },
   {
@@ -59,7 +59,7 @@ const products = [
     price: 54.85,
     oldPrice: 55.8,
     star: "4.0",
-    image: im5,
+    image: "https://tse3.mm.bing.net/th/id/OIP.wac9JLO6PjKlNkhVizrEVwHaHa?w=2400&h=2400&rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: ""
   },
   {
@@ -70,7 +70,7 @@ const products = [
     price: 32.85,
     oldPrice: 33.8,
     star: "4.0",
-    image: im6,
+    image: "https://tse4.mm.bing.net/th/id/OIP.0sQeCFoBpIfDIdue5lGt_AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "5%"
   },
   {
@@ -81,7 +81,7 @@ const products = [
     price: 35.85,
     oldPrice: 37.8,
     star: "4.0",
-    image: im7,
+    image: "https://tse2.mm.bing.net/th/id/OIP.PQK-hDeQZ_mEDpXFkOblzgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "Hot"
   },
   {
@@ -92,10 +92,10 @@ const products = [
     price: 23.85,
     oldPrice: 25.8,
     star: "4.0",
-    image:im8 ,
+    image:"https://tse4.mm.bing.net/th/id/OIP.fC_DaJrNLgRbXNEHH2utXgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     discount: "Hot"
   },
-  { id: 9, title: "Guava", category: "Fruit", price: 2.8, oldPrice: 3.5, star: "4.3", brand: "Local Farm", discount: "8%", image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716" },
+  { id: 9, title: "Guava", category: "Fruit", price: 2.8, oldPrice: 3.5, star: "4.3", brand: "Local Farm", discount: "8%", image: "https://th.bing.com/th/id/OIP.ZyRmatHSjaQz5qmTAyHIDgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" },
 
 ];
 export default products;

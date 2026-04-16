@@ -36,16 +36,16 @@ export default function CartPage() {
           {cart.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-4 bg-white shadow-md rounded-xl border"
+              className="flex flex-col sm:flex-row sm:justify-between sm:items-center m-2 gap-4 p-4 bg-white shadow-md rounded-xl border"
             >
 
               {/* LEFT INFO */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6 w-full">
                 <div className=" flex justify-center items-center gap-4">
-                  <img className="w-15 h-20 m-2 " src={item.image} alt="" />
+                  <img className="w-15 h-15 m-2 hover:w-full hover:h-full  rounded " src={item.image} alt="" />
                   <div>
                     <h2 className="font-semibold text-lg truncate">
-                  {item.title}
+                  {(item.title).slice(0, 15)}
                 </h2>
                  <p className="text-gray-600">
                   Price:{" "}

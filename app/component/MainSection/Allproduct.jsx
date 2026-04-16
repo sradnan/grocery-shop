@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import products from "../MainSection/Data-product/Dataproduct";
 import SubNavbar from "./ProductNav";
 
@@ -30,14 +29,13 @@ function ProductCard(){
           </span>
 
           {/* Image */}
-          <Image
+          <img
             src={item.image}
             alt={item.title}
             width={200}
             height={160}
             className="w-full h-28 sm:h-36 md:h-40 object-contain"
           />
-
           {/* Content */}
           <p className="text-xs sm:text-sm text-gray-400 mt-2">
             Baking material
