@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { CartContext } from "../component/context/CartContext";
+import { FaPlus ,FaMinus } from "react-icons/fa";
 
 import { PaymentDropdown } from "../../components/ui/PaymentDropdown";
 import { PaymentDialog } from "./payment";
@@ -13,6 +14,8 @@ export default function CartPage() {
     (sum, item) => sum + item.price * (item.qty || 0),
     0
   );
+
+  
 
   return (
     <div className="p-4 sm:p-6 max-w-5xl mx-auto">
@@ -38,18 +41,21 @@ export default function CartPage() {
 
               {/* LEFT INFO */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6 w-full">
-                
-
-                <h2 className="font-semibold text-lg truncate">
+                <div className=" flex justify-center items-center gap-4">
+                  <img className="w-15 h-20 m-2 " src={item.image} alt="" />
+                  <div>
+                    <h2 className="font-semibold text-lg truncate">
                   {item.title}
                 </h2>
-
-                <p className="text-gray-600">
+                 <p className="text-gray-600">
                   Price:{" "}
                   <span className="font-medium">
                     ${item.price}
                   </span>
                 </p>
+                <h1>Total Price: ${(item.price * item.qty).toFixed(2)} </h1>
+                  </div>
+                </div>
 
                 {/* QTY CONTROLS */}
                 <div className="flex items-center gap-2">
@@ -57,7 +63,7 @@ export default function CartPage() {
                     onClick={() => UpdateQty(item.id, "dec")}
                     className="px-2 bg-gray-200 rounded"
                   >
-                    -
+                    <FaMinus />
                   </button>
 
                   <span className="font-medium">
@@ -68,11 +74,12 @@ export default function CartPage() {
                     onClick={() => UpdateQty(item.id, "inc")}
                     className="px-2 bg-gray-200 rounded"
                   >
-                    +
+                    <FaPlus/>
                   </button>
                 </div>
 
               </div>
+              
 
               {/* REMOVE BUTTON */}
               <button
