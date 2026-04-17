@@ -1,4 +1,10 @@
 "use client";
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from "@/components/ui/button-group"
+import {Button} from "@/components/ui/button"
 
 import { useContext, useState } from "react";
 import { CartContext } from "../component/context/CartContext";
@@ -53,6 +59,7 @@ const handleselect=(id)=>{
           {/*  SELECT ALL */}
           <div className="flex items-center gap-2">
             <input
+            className="cursor-pointer"
               type="checkbox"
               checked={
                 clickitem.length === cart.length && cart.length > 0
@@ -70,6 +77,7 @@ const handleselect=(id)=>{
             >
               {/* ✅ checkbox */}
               <input
+                className="cursor-pointer"
                 type="checkbox"
                 checked={clickitem.includes(item.id)}
                 onChange={() => handleselect(item.id)}
@@ -105,29 +113,38 @@ const handleselect=(id)=>{
 
                 {/* QTY */}
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => UpdateQty(item.id, "dec")}
-                    className="px-2 bg-gray-200 rounded"
-                  >
-                    <FaMinus />
-                  </button>
+                  
 
-                  <span className="font-medium">
+                  <span className="font-bold ">
                     {item.qty}
                   </span>
+                    <ButtonGroup orientation="vertical" className="h-fit">
 
-                  <button
+                  <Button
+                    variant="outline"
+                    size="icon"
                     onClick={() => UpdateQty(item.id, "inc")}
-                    className="px-2 bg-gray-200 rounded"
+                    
                   >
-                    <FaPlus />
-                  </button>
+                    <FaPlus/>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => UpdateQty(item.id, "dec")}
+                  >
+                    <FaMinus/>
+                  </Button>
+
+                </ButtonGroup>
+                  
                 </div>
               </div>
 
               {/* REMOVE */}
               <button
-                className="bg-red-500 hover:bg-red-600 transition text-white px-4 py-2 rounded-lg text-sm"
+                className="bg-red-500 hover:bg-red-600 transition cursor-pointer text-white px-4 py-2 rounded-lg text-sm"
                 onClick={() => removeFromCart(item.id)}
               >
                 Remove
