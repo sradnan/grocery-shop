@@ -14,13 +14,11 @@ export default function CartPage() {
   const [clickitem, setClickItem] = useState([]);
 
   //  single select
-  const handleselect = (id) => {
-    setClickItem((prev) =>
-      prev.includes(id)
-        ? prev.filter((item) => item !== id)
-        : [...prev, id]
-    );
-  };
+const handleselect=(id)=>{
+  setClickItem((prev)=> prev.includes(id)
+? prev.filter((item)=> item !==id): [...prev,id]
+);
+};
 
   // ✅ select all
   const handleSelectAll = () => {
