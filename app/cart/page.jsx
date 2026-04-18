@@ -1,10 +1,9 @@
 "use client";
+
 import {
   ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "@/components/ui/button-group"
-import {Button} from "@/components/ui/button"
+} from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
 
 import { useContext, useState } from "react";
 import { CartContext } from "../component/context/CartContext";
@@ -15,36 +14,44 @@ import { PaymentDialog } from "./payment";
 
 export default function CartPage() {
   const { cart, removeFromCart, UpdateQty } = useContext(CartContext);
+  const [isChecked, setisChecked]=useState(false);
 
-  //  selected items
+  // selected items
   const [clickitem, setClickItem] = useState([]);
 
-  //  single select
-const handleselect=(id)=>{
-  setClickItem((prev)=> prev.includes(id)
-? prev.filter((item)=> item !==id): [...prev,id]
-);
-};
+  // delivery charge
+  const [delivery, setDelivery] = useState(2);
 
-  // ✅ select all
+  // single select
+  const handleselect = (id) => {
+    setClickItem((prev) =>
+      prev.includes(id)
+        ? prev.filter((item) => item !== id)
+        : [...prev, id]
+    );
+  };
+
+  // select all
   const handleSelectAll = () => {
     if (clickitem.length === cart.length) {
-      setClickItem([]); // unselect all
+      setClickItem([]);
     } else {
-      setClickItem(cart.map((item) => item.id)); // select all
+      setClickItem(cart.map((item) => item.id));
     }
   };
 
-  // ✅ total only selected
-  const total = cart.reduce((sum, item) => {
+  // total only selected
+  const subtotal = cart.reduce((sum, item) => {
     if (clickitem.includes(item.id)) {
       return sum + item.price * item.qty;
     }
     return sum;
   }, 0);
 
+  const total = subtotal + delivery;
+
   return (
-    <div className="p-4 sm:p-6 max-w-5xl mx-auto">
+    <div className="p-4 sm:p-6 max-w-6xl mx-auto">
       <h1 className="text-2xl font-bold mb-6 text-center">
         Your Cart 🛒
       </h1>
@@ -54,119 +61,155 @@ const handleselect=(id)=>{
           No items in cart
         </p>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col bg-gray-300 p-10 rounded-2xl lg:flex-row gap-6">
 
-          {/*  SELECT ALL */}
-          <div className="flex items-center gap-2">
-            <input
-            className="cursor-pointer"
-              type="checkbox"
-              checked={
-                clickitem.length === cart.length && cart.length > 0
-              }
-              onChange={handleSelectAll}
-            />
-            <span>Select All</span>
-          </div>
+          {/* ================= LEFT: CART LIST ================= */}
+          <div className="flex-1 bg-amber-100 p-5 rounded-2xl flex flex-col gap-4">
 
-          {/* CART ITEMS */}
-          {cart.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col sm:flex-row sm:justify-between sm:items-center m-2 gap-4 p-4 bg-white shadow-md rounded-xl border"
-            >
-              {/* ✅ checkbox */}
+            {/* SELECT ALL */}
+            <div className="flex items-center gap-2">
               <input
-                className="cursor-pointer"
                 type="checkbox"
-                checked={clickitem.includes(item.id)}
-                onChange={() => handleselect(item.id)}
+                className="cursor-pointer"
+                checked={
+                  clickitem.length === cart.length && cart.length > 0
+                }
+                onChange={handleSelectAll}
               />
+              <span>Select All</span>
+            </div>
 
-              {/* LEFT INFO */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6 w-full">
-                <div className="flex justify-center items-center gap-4">
+            {/* CART ITEMS */}
+            {cart.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-4 bg-white shadow-md rounded-xl border"
+              >
+                {/* checkbox */}
+                <input
+                  type="checkbox"
+                  className="cursor-pointer"
+                  checked={clickitem.includes(item.id)}
+                  onChange={() => handleselect(item.id)}
+                />
+
+                {/* product info */}
+                <div className="flex items-center gap-4 w-full">
                   <img
-                    className="w-16 h-16 object-cover hover:w-full hover:h-full rounded hover:scale-110 transition"
+                    className="w-16 h-16 hover:w-full hover:h-full object-cover rounded"
                     src={item.image}
                     alt=""
                   />
 
                   <div>
-                    <h2 className="font-semibold text-lg truncate">
-                      {item.title.slice(0, 15)}
+                    <h2 className="font-semibold">
+                      {item.title.slice(0, 20)}
                     </h2>
 
                     <p className="text-gray-600">
-                      Price:{" "}
-                      <span className="font-medium">
-                        ${item.price}
-                      </span>
+                      Price: ${item.price}
                     </p>
 
-                    <h1>
-                      Total Price: $
+                    <p className="font-medium">
+                      Total: $
                       {(item.price * item.qty).toFixed(2)}
-                    </h1>
+                    </p>
                   </div>
                 </div>
 
-                {/* QTY */}
+                {/* quantity */}
                 <div className="flex items-center gap-2">
-                  
-
-                  <span className="font-bold ">
+                  <span className="font-bold">
                     {item.qty}
                   </span>
-                    <ButtonGroup orientation="vertical" className="h-fit">
 
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => UpdateQty(item.id, "inc")}
-                    
-                  >
-                    <FaPlus/>
-                  </Button>
+                  <ButtonGroup orientation="vertical">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => UpdateQty(item.id, "inc")}
+                    >
+                      <FaPlus />
+                    </Button>
 
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => UpdateQty(item.id, "dec")}
-                  >
-                    <FaMinus/>
-                  </Button>
-
-                </ButtonGroup>
-                  
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => UpdateQty(item.id, "dec")}
+                    >
+                      <FaMinus />
+                    </Button>
+                  </ButtonGroup>
                 </div>
+
+                {/* remove */}
+                <button
+                  className="bg-red-500 hover:bg-red-600 transition text-white px-3 py-1 rounded"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  Remove
+                </button>
               </div>
+            ))}
+          </div>
 
-              {/* REMOVE */}
-              <button
-                className="bg-red-500 hover:bg-red-600 transition cursor-pointer text-white px-4 py-2 rounded-lg text-sm"
-                onClick={() => removeFromCart(item.id)}
-              >
-                Remove
-              </button>
+          {/* ================= RIGHT: SUMMARY ================= */}
+          <div className="w-full lg:w-[350px] bg-white shadow-md rounded-xl p-4 h-fit sticky top-5">
+
+            <h2 className="text-lg font-semibold mb-4">
+              Order Summary
+            </h2>
+
+            {/* subtotal */}
+            <div className="flex justify-between mb-2">
+              <span>Subtotal</span>
+              <span>${subtotal.toFixed(2)}</span>
             </div>
-          ))}
 
-          {/* TOTAL */}
-          <div className="flex justify-between items-center mt-4 border-t pt-4">
-            <p className="text-lg font-semibold">Total</p>
-            <p className="text-xl font-bold text-green-600">
-              ${total.toFixed(2)}
-            </p>
+            {/* delivery */}
+            <div className="mb-4">
+              <label className="block mb-1 font-medium">
+                Delivery
+              </label>
+              <select
+                className="w-full border p-2 rounded"
+                onChange={(e) =>
+                  setDelivery(Number(e.target.value))
+                }
+              >
+                <option value={2}>Inside Dhaka - $2</option>
+                <option value={5}>Outside Dhaka - $5</option>
+              </select>
+            </div>
+
+            {/* total */}
+            <div className="flex justify-between border-t pt-3 mb-4">
+              <span className="font-semibold">Total</span>
+              <span className="font-bold text-green-600">
+                ${total.toFixed(2)}
+              </span>
+            </div>
+
+            {/* payment */}
+            <div className="flex flex-col gap-3">
+              <PaymentDropdown />
+              <div className="flex">
+                <input type="checkbox" 
+                checked={isChecked}
+                onChange={(e)=>setisChecked(e.target.checked)}
+                
+                /> <span className="p-1">I agree with <span className="text-blue-600">Turms and Condition</span>.</span>
+              </div>
+              {isChecked && (
+              
+                <PaymentDialog />
+            
+            )}
+              
+              
+            </div>
           </div>
 
-          {/* PAYMENT */}
-          <div className="mt-4 flex flex-col gap-4 items-center sm:items-end">
-            <PaymentDropdown />
-
-            {/* ❗ button er moddhe na */}
-            <PaymentDialog />
-          </div>
         </div>
       )}
     </div>
