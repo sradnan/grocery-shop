@@ -57,9 +57,13 @@ export default function CartPage() {
       </h1>
 
       {cart.length === 0 ? (
-        <p className="text-center text-gray-500">
+        <div className="text-center">
+          <h1 className="text-center text-2xl text-gray-500">
           No items in cart
-        </p>
+        </h1>
+        <p className="text-gray-500">Your all Favourite Items are available <span className="text-blue-500 "><a href="/products">here...</a></span></p>
+        </div>
+        
       ) : (
         <div className="flex flex-col bg-gray-300 p-10 rounded-2xl lg:flex-row gap-6">
 
