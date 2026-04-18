@@ -6,6 +6,7 @@ import logo from "./picture/logo.png";
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext";
 import { useRouter } from "next/navigation";
+import { DropdownMenuBasic } from "../../components/ui/DropdownMenuBasic"
 
 function Navbar2() {
   const { totalItems } = useContext(CartContext);
@@ -19,6 +20,10 @@ function Navbar2() {
   return (
     <div className="w-full bg-gray-100 px-10 shadow-sm">
       <div className="max-w-9xl flex items-center justify-between px-4 py-3 gap-4">
+
+        <div className="block md:hidden">
+          <DropdownMenuBasic/>
+        </div>
 
         {/*  Logo */}
         <div className="flex items-center h-10 w-32 relative">

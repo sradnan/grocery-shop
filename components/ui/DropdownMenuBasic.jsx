@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { FiAlignJustify } from "react-icons/fi";
+import Link from "next/link";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,19 +16,47 @@ export function DropdownMenuBasic() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline"><FiAlignJustify/></Button>
+        <Button variant="outline">
+          <FiAlignJustify />
+        </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent>
+
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Home</DropdownMenuLabel>
-          <DropdownMenuItem>Product</DropdownMenuItem>
-          <DropdownMenuItem>About</DropdownMenuItem>
-          <DropdownMenuItem>contact</DropdownMenuItem>
+          <DropdownMenuLabel>Menu</DropdownMenuLabel>
+
+          <DropdownMenuItem asChild>
+            <Link href="/home">Home</Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/products">Product</Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/about">About</Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/contact">Contact</Link>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
+
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Be a Vendor </DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>Delivery</DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href="/vendor">Be a Vendor</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href="/support">Support</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem disabled>
+          Delivery
+        </DropdownMenuItem>
+
       </DropdownMenuContent>
     </DropdownMenu>
   )

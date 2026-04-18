@@ -44,7 +44,9 @@ export default function RootLayout({
             <div>
               <Navbar1 />
               <Navbar2 />
-              <Navbar3 />
+              <div className="hidden sm:block">
+                <Navbar3 />
+              </div>
             </div>
           </header>
 

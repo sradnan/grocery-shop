@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import cont from "../component/picture/Container.png";
 import fire from "../component/picture/SVG.png";
@@ -18,33 +17,25 @@ import {
 import Link from "next/link";
 
 function Navbar3() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <nav className="w-full px-10 bg-white">
+    <nav className="w-full px-10 bg-white sm:block">
       <div className="max-w-9xl flex items-center justify-between px-4 py-3">
 
         {/* 🔵 Left Section */}
         <div className="flex items-center gap-6">
 
-          {/* ☰ Mobile Button (NEW) */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden text-2xl"
-          >
-            {open ? "✖" : "☰"}
-          </button>
-
           {/* Categories Button */}
           <div className="hidden lg:flex bg-blue-600 items-center gap-2 px-2 py-2 rounded-md cursor-pointer">
-           <a className="flex items-center gap-2" href="/products"> <Image src={cont} alt="icon" width={20} height={20} />
-            <span className="text-white text-sm font-medium">
-              Browse All Categories
-            </span></a>
+            <a className="flex items-center gap-2" href="/products">
+              <Image src={cont} alt="icon" width={20} height={20} />
+              <span className="text-white text-sm font-medium">
+                Browse All Categories
+              </span>
+            </a>
           </div>
 
           {/* Menu Links */}
-          <div className="hidden md:flex items-center gap-5 text-gray-700 text-sm">
+          <div className="flex items-center gap-5 text-gray-700 text-sm">
 
             {/* Hot Deals */}
             <a href="#" className="flex items-center gap-1 hover:text-green-600 transition">
@@ -54,9 +45,7 @@ function Navbar3() {
 
             <a href="/home" className="hover:text-green-600 transition">Home</a>
             <a href="/products" className="hover:text-green-600 transition">Products</a>
-            <a href="/about" className="hover:text-green-600 transition">
-              About
-            </a>
+            <a href="/about" className="hover:text-green-600 transition">About</a>
 
             {/* Shop */}
             <NavigationMenu className="!w-24">
@@ -103,21 +92,18 @@ function Navbar3() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {/* Contact */}
             <Link href="/contact" className="hover:text-green-600 transition">
               Contact
             </Link>
-
-            
 
           </div>
         </div>
 
         {/* 📞 Right Section */}
-        <div className="hidden sm:block md:hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           <Image src={headphone} alt="support" width={32} height={32} />
 
-          <div className="hidden sm:block">
+          <div>
             <h1 className="text-blue-600 font-semibold leading-4">
               1900 88123
             </h1>
@@ -126,19 +112,8 @@ function Navbar3() {
             </p>
           </div>
         </div>
-      </div>
 
-      {/* 📱 Mobile Menu (UPDATED) */}
-      {open && (
-        <div className="md:hidden px-4 pb-3">
-          <div className="flex flex-col gap-3 text-sm text-gray-600">
-            <a href="/home" onClick={() => setOpen(false)}>Home</a>
-            <a href="/products" onClick={() => setOpen(false)}>Products</a>
-            <a href="/about" onClick={() => setOpen(false)}>About</a>
-            <a href="/contact" onClick={() => setOpen(false)}>Contact</a>
-          </div>
-        </div>
-      )}
+      </div>
     </nav>
   );
 }
