@@ -69,7 +69,7 @@ function Navbar2() {
 
           {/* Become Vendor */}
           <div className="hidden lg:block border text-green-600 px-3 py-1 rounded-md cursor-pointer hover:bg-green-50 transition">
-            Become Vendor →
+           <a href="/products/vender">Become Vendor →</a> 
           </div>
 
           {/* Compare */}
@@ -110,7 +110,7 @@ function Navbar2() {
       </div>
 
       {/* Mobile Search */}
-     
+      
     </div>
   );
 }

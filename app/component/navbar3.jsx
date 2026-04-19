@@ -38,7 +38,7 @@ function Navbar3() {
           <div className="flex items-center gap-5 text-gray-700 text-sm">
 
             {/* Hot Deals */}
-            <a href="#" className="flex items-center gap-1 hover:text-green-600 transition">
+            <a href="/products/hotdeal" className="flex items-center gap-1 hover:text-green-600 transition">
               <Image src={fire} alt="hot" width={16} height={16} />
               Hot Deals
             </a>
