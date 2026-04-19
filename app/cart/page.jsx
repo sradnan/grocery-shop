@@ -163,7 +163,10 @@ export default function CartPage() {
             <h2 className="text-lg font-semibold mb-4">
               Order Summary
             </h2>
-
+               <div className="flex justify-between mb-2">
+              <span>Total items</span>
+              <span>{clickitem.length}</span>
+            </div>
             {/* subtotal */}
             <div className="flex justify-between mb-2">
               <span>Subtotal</span>
