@@ -110,12 +110,7 @@ function Navbar2() {
       </div>
 
       {/* Mobile Search */}
-      <div className="md:hidden px-4 pb-3">
-        <div className="flex items-center border rounded-md overflow-hidden bg-white">
-          
-          
-        </div>
-      </div>
+     
     </div>
   );
 }
